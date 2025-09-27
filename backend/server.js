@@ -17,8 +17,8 @@ app.get('/api/employees/:empId',employeectler.getemployeeById);
 app.post('/api/employees/upload', upload.single('excel'),checkSchema(validateRow),employeectler.uploadEmployee);
 app.post('/api/employees',checkSchema(employeeval) ,employeectler.addemployee);
 app.put('/api/employees/:empId',checkSchema(employeeval) ,employeectler.updateEmployee);
-app.delete('/api/employees/:empId',checkSchema(employeeval) ,employeectler.deleteEmployee);
+app.delete('/api/employees/:empId' ,employeectler.deleteEmployee);
 
-app.listen(port,()=>{
-    console.log(`server is running on port ,${port}`)
-})
+app.listen(port, '0.0.0.0', () => {
+  console.log(`server is running on port ${port}`);
+});
